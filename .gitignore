@@ -1,0 +1,7 @@
+/site/_site/
+/site/.jekyll-cache/
+/site/.jekyll-metadata
+/vendor/
+/.bundle/
+/site/.bundle/
+/LOCAL-README.md

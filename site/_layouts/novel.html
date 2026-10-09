@@ -1,0 +1,21 @@
+---
+layout: default
+---
+<main class="novel-page">
+  <div class="container">
+    <div class="novel-grid">
+      <img
+        class="novel-cover"
+        src="{{ page.cover | relative_url }}"
+        alt="{{ page.cover_alt | escape }}"
+      >
+
+      <div class="novel-details">
+        <h1>{{ page.title | escape }}</h1>
+        <p class="novel-author">By {{ page.author | escape }}</p>
+
+        {{ content }}
+      </div>
+    </div>
+  </div>
+</main>

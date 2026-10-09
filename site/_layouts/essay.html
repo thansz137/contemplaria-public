@@ -1,0 +1,22 @@
+---
+layout: default
+---
+<main class="page-content">
+  <div class="container">
+    <h1 class="page-title">{{ page.title }}</h1>
+    {% if page.subtitle %}<p class="page-subtitle">{{ page.subtitle }}</p>{% endif %}
+    {{ content }}
+    <nav class="essay-nav">
+      {% if page.prev_essay %}
+        <a class="prev" href="{{ page.prev_essay.url | relative_url }}">{{ page.prev_essay.title }}</a>
+      {% else %}
+        <span></span>
+      {% endif %}
+      {% if page.next_essay %}
+        <a class="next" href="{{ page.next_essay.url | relative_url }}">{{ page.next_essay.title }}</a>
+      {% else %}
+        <span></span>
+      {% endif %}
+    </nav>
+  </div>
+</main>

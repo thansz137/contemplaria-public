@@ -1,0 +1,876 @@
+/* ============================================
+   Contemplaria
+   ============================================ */
+
+/* --- Custom Properties --- */
+:root {
+  --bg: #ffffff;
+  --bg-alt: #f7f7f7;
+  --text: #1a1a1a;
+  --text-light: #555555;
+  --text-faint: #999999;
+  --accent: #1a1a1a;
+  --border: #e0e0e0;
+  --rule: #d0d0d0;
+  --link: #1a1a1a;
+  --link-hover: #555555;
+  --max-width: 42rem;
+  --nav-height: 3.5rem;
+}
+
+/* --- Reset --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Base --- */
+html {
+  font-size: 18px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Crimson Pro', Georgia, 'Times New Roman', serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.72;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--text);
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-size: 1.6rem;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+h4 {
+  font-size: 1.1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-bottom: 1.15rem;
+}
+
+strong {
+  font-weight: 700;
+}
+
+em {
+  font-style: italic;
+}
+
+/* --- Links --- */
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition: color 0.15s ease;
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
+/* --- Lists --- */
+ul, ol {
+  margin-bottom: 1.15rem;
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.4rem;
+}
+
+li > ul, li > ol {
+  margin-top: 0.4rem;
+  margin-bottom: 0;
+}
+
+/* --- Horizontal Rules --- */
+hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 2.5rem auto;
+  max-width: 8rem;
+}
+
+/* --- Blockquotes --- */
+blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1.25rem;
+  margin: 1.5rem 0;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* --- Code --- */
+code {
+  font-family: 'IBM Plex Mono', 'Consolas', monospace;
+  font-size: 0.85rem;
+  background: var(--bg-alt);
+  padding: 0.15rem 0.35rem;
+  border-radius: 3px;
+}
+
+pre {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.25rem;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+/* --- Tables --- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.92rem;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.6rem 0.8rem;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  font-weight: 700;
+  color: var(--text);
+  border-bottom: 2px solid var(--text);
+}
+
+/* --- Layout --- */
+.site-wrapper {
+  flex: 1;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* --- Header & Navigation --- */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--nav-height);
+}
+
+.site-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.site-title:hover {
+  color: var(--text-light);
+}
+
+.site-nav {
+  display: flex;
+  gap: 1.75rem;
+  align-items: center;
+}
+
+.site-nav a {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.92rem;
+  color: var(--text-light);
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  transition: color 0.15s ease;
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+  color: var(--text);
+}
+
+/* Mobile nav toggle */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: var(--text);
+}
+
+.nav-toggle svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+}
+
+/* --- Page Content --- */
+.page-content {
+  padding: 3rem 0 4rem;
+}
+
+.page-title {
+  margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 1.05rem;
+  color: var(--text-light);
+  font-style: italic;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+.page-meta {
+  font-size: 0.85rem;
+  color: var(--text-faint);
+  margin-bottom: 2rem;
+}
+
+/* --- Home Page --- */
+.home-intro {
+  padding: 4rem 0 3rem;
+}
+
+.home-intro h1 {
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.home-intro .tagline {
+  font-size: 1.15rem;
+  color: var(--text-light);
+  font-style: italic;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.home-feature {
+  background: #f3efe7;
+  border: 1px solid #e2dbcf;
+  border-left: 3px solid #514b45;
+  border-radius: 4px;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.home-feature-label {
+  color: #655e55;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.home-feature h2 {
+  margin: 0 0 0.25rem;
+  font-size: 2.2rem;
+}
+
+.home-feature a {
+  color: #514b45;
+}
+
+.home-feature h2 a {
+  text-decoration: none;
+}
+
+.home-feature p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 480px) {
+  .home-feature {
+    padding: 1.25rem;
+  }
+}
+
+/* --- Essay Navigation --- */
+.essay-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.88rem;
+}
+
+.essay-nav a {
+  color: var(--text-light);
+  text-decoration: none;
+}
+
+.essay-nav a:hover {
+  color: var(--text);
+}
+
+.essay-nav .prev::before {
+  content: "\2190\00a0";
+}
+
+.essay-nav .next::after {
+  content: "\00a0\2192";
+}
+
+/* --- Protocol Hub --- */
+.hub-section {
+  margin-bottom: 2.5rem;
+}
+
+.hub-section h2 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.hub-section p {
+  color: var(--text-light);
+}
+
+.content-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.content-list li {
+  margin-bottom: 0.65rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.content-list li::before {
+  content: "\00b7";
+  position: absolute;
+  left: 0;
+  color: var(--text-faint);
+  font-weight: 700;
+}
+
+.content-list .embargoed {
+  color: var(--text-faint);
+  font-style: italic;
+}
+
+/* --- Witness Wall & Dibur Lists --- */
+.memorial-list {
+  list-style: none;
+  padding: 0;
+}
+
+.memorial-list li {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.95rem;
+}
+
+.memorial-list li:last-child {
+  border-bottom: none;
+}
+
+.memorial-date {
+  color: var(--text-faint);
+  font-size: 0.85rem;
+  display: inline-block;
+  min-width: 6.5rem;
+}
+
+/* --- Blog --- */
+.post-list {
+  list-style: none;
+  padding: 0;
+}
+
+.post-list li {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.post-list li:last-child {
+  border-bottom: none;
+}
+
+.post-list-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.post-list-title a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.post-list-title a:hover {
+  color: var(--text-light);
+}
+
+.post-list-meta {
+  font-size: 0.85rem;
+  color: var(--text-faint);
+  margin-top: 0.25rem;
+}
+
+.post-list-excerpt {
+  margin-top: 0.4rem;
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+/* --- Footer --- */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 0;
+  margin-top: auto;
+}
+
+.site-footer .container {
+  text-align: center;
+}
+
+.footer-blessing {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  color: var(--text-light);
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-meta {
+  font-size: 0.78rem;
+  color: var(--text-faint);
+}
+
+.footer-meta a {
+  color: var(--text-faint);
+}
+
+/* --- Embargoed Notice --- */
+.embargoed-notice {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1rem 1.25rem;
+  color: var(--text-light);
+  font-style: italic;
+  font-size: 0.92rem;
+  margin: 1.5rem 0;
+}
+
+/* --- Closing Blessing --- */
+.blessing {
+  font-style: italic;
+  color: var(--text-light);
+  margin-top: 2.5rem;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  html {
+    font-size: 17px;
+  }
+
+  .site-header .container {
+    position: relative;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .site-nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 1.5rem;
+    gap: 0.75rem;
+  }
+
+  .site-nav.open {
+    display: flex;
+  }
+
+  .site-nav a {
+    font-size: 1rem;
+    padding: 0.25rem 0;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .home-intro h1 {
+    font-size: 2.2rem;
+  }
+
+  .home-intro {
+    padding: 2.5rem 0 2rem;
+  }
+
+  .page-content {
+    padding: 2rem 0 3rem;
+  }
+
+  .essay-nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 16px;
+  }
+
+  .container {
+    padding: 0 1.15rem;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .home-intro h1 {
+    font-size: 1.9rem;
+  }
+
+  .memorial-date {
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+}
+
+/* --- Print --- */
+@media print {
+  .site-header,
+  .site-footer,
+  .essay-nav,
+  .nav-toggle {
+    display: none;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.6;
+    color: #000;
+    background: #fff;
+  }
+
+  .container {
+    max-width: none;
+  }
+}
+
+/* Novel landing page */
+.novel-page {
+  padding: 3rem 0 4rem;
+}
+
+.novel-page .container {
+  max-width: 56rem;
+}
+
+.novel-grid {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.novel-cover {
+  display: block;
+  width: 250px;
+  max-width: 100%;
+  height: auto;
+}
+
+.novel-definition {
+  background: var(--bg-alt);
+  border-left: 2px solid var(--border);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  border-radius: 3px;
+}
+
+.novel-details {
+  min-width: 0;
+}
+
+.novel-details h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: 0.25rem;
+}
+
+.novel-author {
+  color: var(--text-light);
+  margin-bottom: 1.75rem;
+}
+
+.novel-audience {
+  font-size: 0.95rem;
+  color: var(--text-light);
+}
+
+.book-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.75rem;
+}
+
+.book-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--text);
+  border-radius: 3px;
+  color: var(--text);
+  text-decoration: none;
+  line-height: 1.35;
+}
+
+.book-links a:hover {
+  background: var(--bg-alt);
+}
+
+.book-links a.book-link-primary {
+  background: var(--text);
+  color: var(--bg);
+}
+
+.book-links a.book-link-primary:hover {
+  background: var(--text-light);
+}
+
+.book-links a:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 4px;
+}
+
+@media (max-width: 768px) {
+  .novel-page {
+    padding: 2rem 0 3rem;
+  }
+
+  .novel-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .novel-cover {
+    width: 190px;
+    margin: 0 auto;
+  }
+
+  .novel-details h1,
+  .novel-author {
+    text-align: center;
+  }
+
+  .book-links {
+    flex-direction: column;
+  }
+}
+
+.reader-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.reader-nav a:last-child {
+  margin-left: auto;
+}
+
+.no-indent p {
+  text-indent: 0;
+}
+
+.no-indent-italic p {
+  font-style: italic;
+  text-indent: 0;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.hell-verdict p {
+  /* 1. Creates the blank "pause" before the line */
+  margin-top: 3em;   
+  
+  /* 2. Centers the line */
+  text-align: center;
+  
+  /* 3. Removes the default paragraph indent */
+  text-indent: 0;
+  
+  /* 4. The Machine Voice (for KDP compliance) */
+  font-family: monospace; 
+  
+  /* 5. The "Shout" (10% LARGER) */
+  font-size: 2.2em;   
+  
+  /* 6. The Force (FINAL) */
+  font-weight: bold;
+}
+
+
+.heaven-verdict p {
+  /* 1. Creates the blank "pause" before the line */
+  margin-top: 3em;   
+  
+  /* 2. Centers the line */
+  text-align: center;
+  
+  /* 3. Removes the default paragraph indent */
+  text-indent: 0;
+  
+  /* 5. The "whisper" (10% SMALLER) */
+  font-size: 0.8em;   
+
+  font-style: italic;
+}
+
+body.ending-page {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.ending-content {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1rem;
+}
+
+.ending-content p {
+  margin: 0;
+  text-indent: 0;
+  text-align: center;
+  white-space: nowrap;
+  font-size: min(15vw, 55dvh);
+  font-weight: bold;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.ending-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+.ending-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+.airy-pop {
+  margin: 3.5rem 0;
+  text-align: center;
+}
+
+.airy-pop p {
+  margin: 0;
+  text-indent: 0;
+  font-size: clamp(3rem, 10vw, 5rem);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0.16em;
+  color: #707070;
+}
+
+/* Override the italics from the Markdown asterisks */
+.airy-pop em {
+  font-style: normal;
+}
+
+.pricing-note {
+  border-top: 1px solid var(--border);
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+}
+
+.review-section {
+  border-top: 1px solid var(--border);
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+}
+
+.review-section h2 {
+  margin-top: 0;
+}

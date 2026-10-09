@@ -1,0 +1,33 @@
+title: Contemplaria
+description: "A home for ideas outside the norm that invite a closer look."
+url: "https://contemplaria.com"
+baseurl: ""
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+permalink: /essays/:year/:month/:day/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  - scope:
+      path: "_posts"
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: "asiyah/read"
+    values:
+      sitemap: false
+      noindex: true
+      description: "Read Asiyah by T.H. Ansz."
+  - scope:
+      path: "assets/downloads"
+    values:
+      sitemap: false
