@@ -5,3 +5,4 @@
 /.bundle/
 /site/.bundle/
 /LOCAL-README.md
+/.env

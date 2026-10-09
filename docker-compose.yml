@@ -1,7 +1,7 @@
 services:
   jekyll:
     build: .
-    container_name: jekyll-dev
+    container_name: ${JEKYLL_CONTAINER_NAME:-jekyll-dev}
     ports:
       - "4000:4000"
       - "35729:35729"
